@@ -2,6 +2,8 @@ use actix_web::{get, post, web, App, HttpServer, Responder, HttpResponse};
 use actix_files as actix_fs;
 use std::fs;
 use std::path::PathBuf;
+use diesel::prelude::*;
+mod database;
 
 #[get("/{id}/{name}/index.html")]
 async fn index(info: web::Path<(u32, String)>) -> impl Responder {
